@@ -9,17 +9,22 @@ export class ApiError extends Error {
   }
 }
 
-// API base URL - use environment variable or fallback to Render backend
-const API_BASE = import.meta.env.VITE_API_URL || 'https://taskflow-work.onrender.com';
+// API base URL - HARDCODED for production
+const API_BASE = 'https://taskflow-work.onrender.com';
+
+console.log('[API] Using base URL:', API_BASE);
 
 /**
  * Single wrapper around every request: network failures and non-2xx responses
  * both become a readable Error the UI can surface (never a blank screen).
  */
 async function request<T>(path: string, init?: RequestInit): Promise<T> {
+  const fullUrl = `${API_BASE}${path}`;
+  console.log('[API] Fetching:', fullUrl);
+  
   let res: Response;
   try {
-    res = await fetch(`${API_BASE}${path}`, {
+    res = await fetch(fullUrl, {
       headers: { 'Content-Type': 'application/json' },
       ...init,
     });
