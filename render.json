@@ -4,8 +4,8 @@
       "type": "web",
       "name": "taskflow-backend",
       "plan": "free",
-      "buildCommand": "cd backend && bash build.sh",
-      "startCommand": "cd backend && bash start.sh",
+      "buildCommand": "cd backend && npm install",
+      "startCommand": "cd backend && npm start",
       "envVars": [
         {
           "key": "NODE_ENV",
