@@ -1,0 +1,15 @@
+{
+  "name": "taskflow",
+  "private": true,
+  "version": "1.0.0",
+  "description": "TaskFlow — full-stack kanban board",
+  "scripts": {
+    "install": "cd backend && npm install",
+    "build": "cd backend && npm install",
+    "start": "cd backend && npm start",
+    "dev": "cd backend && npm run dev",
+    "test": "cd backend && npm test",
+    "seed": "cd backend && npm run seed",
+    "seed:force": "cd backend && npm run seed:force"
+  }
+}
