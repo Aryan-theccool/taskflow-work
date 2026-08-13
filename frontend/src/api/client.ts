@@ -9,8 +9,8 @@ export class ApiError extends Error {
   }
 }
 
-// API base URL - use environment variable or fallback to current origin
-const API_BASE = import.meta.env.VITE_API_URL || 'https://taskflow-work-backend.onrender.com';
+// API base URL - use environment variable or fallback to Render backend
+const API_BASE = import.meta.env.VITE_API_URL || 'https://taskflow-work.onrender.com';
 
 /**
  * Single wrapper around every request: network failures and non-2xx responses
@@ -66,4 +66,5 @@ export const api = {
 
   deleteTask: (id: number) => request<void>(`/tasks/${id}`, { method: 'DELETE' }),
 };
+
 
