@@ -1,0 +1,21 @@
+{
+  "name": "taskflow-backend",
+  "private": true,
+  "version": "1.0.0",
+  "description": "TaskFlow API — Express + SQLite, real schema, real SQL queries",
+  "type": "commonjs",
+  "main": "src/server.js",
+  "scripts": {
+    "dev": "node src/server.js",
+    "start": "node src/server.js",
+    "seed": "node seed.js",
+    "seed:force": "node seed.js --force",
+    "test": "node --test"
+  },
+  "dependencies": {
+    "express": "^4.21.2"
+  },
+  "engines": {
+    "node": ">=22.5"
+  }
+}
