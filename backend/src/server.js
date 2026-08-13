@@ -14,5 +14,5 @@ if (isEmpty(db)) {
 const app = createApp(db);
 const port = Number(process.env.PORT || 4000);
 app.listen(port, '0.0.0.0', () => {
-  console.log(`[taskflow] API listening on http://localhost:${port}`);
+  console.log(`[taskflow] API listening on port ${port}`);
 });
