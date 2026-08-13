@@ -11,18 +11,20 @@ function createApp(db) {
   const app = express();
   app.use(express.json());
 
-  // Enable CORS for frontend
+  // Enable CORS for all origins
   app.use((req, res, next) => {
     res.header('Access-Control-Allow-Origin', '*');
-    res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept');
     res.header('Access-Control-Allow-Methods', 'GET, POST, PUT, PATCH, DELETE, OPTIONS');
+    res.header('Access-Control-Allow-Headers', 'Content-Type, Authorization');
+    res.header('Access-Control-Max-Age', '86400');
+    
     if (req.method === 'OPTIONS') {
-      return res.sendStatus(200);
+      return res.sendStatus(204);
     }
     next();
   });
 
-  app.get('/health', (req, res) => res.json({ ok: true }));
+  app.get('/health', (req, res) => res.json({ ok: true, timestamp: new Date().toISOString() }));
   app.use('/boards', boardsRouter(db));
   app.use('/tasks', tasksRouter(db));
 
