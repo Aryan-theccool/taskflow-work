@@ -134,7 +134,7 @@ export default function Hero() {
           </button>
           <a
             className="btn btn--ghost btn--lg"
-            href="https://github.com/Aryan-theccool/taskflow-"
+            href="https://github.com/Aryan-theccool/taskflow-work"
             target="_blank"
             rel="noreferrer"
           >
