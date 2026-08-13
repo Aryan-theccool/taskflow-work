@@ -1,0 +1,7 @@
+node_modules/
+dist/
+*.log
+.DS_Store
+
+# SQLite runtime data — a fresh clone re-seeds automatically on first run
+backend/data/
