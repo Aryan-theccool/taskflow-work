@@ -9,6 +9,9 @@ export class ApiError extends Error {
   }
 }
 
+// API base URL - use environment variable or fallback to current origin
+const API_BASE = import.meta.env.VITE_API_URL || 'https://taskflow-work-backend.onrender.com';
+
 /**
  * Single wrapper around every request: network failures and non-2xx responses
  * both become a readable Error the UI can surface (never a blank screen).
@@ -16,7 +19,7 @@ export class ApiError extends Error {
 async function request<T>(path: string, init?: RequestInit): Promise<T> {
   let res: Response;
   try {
-    res = await fetch(path, {
+    res = await fetch(`${API_BASE}${path}`, {
       headers: { 'Content-Type': 'application/json' },
       ...init,
     });
@@ -63,3 +66,4 @@ export const api = {
 
   deleteTask: (id: number) => request<void>(`/tasks/${id}`, { method: 'DELETE' }),
 };
+
