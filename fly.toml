@@ -1,5 +1,5 @@
 # Fly.io configuration for TaskFlow backend
-app = "taskflow-backend"
+app = "taskflow-work-backend"
 primary_region = "sea"
 
 [build]
